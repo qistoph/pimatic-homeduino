@@ -6,7 +6,7 @@ module.exports = {
     driver:
       description: "The driver to connect to the Arduino or 'virtualarduino'"
       type: "string"
-      enum: ["serialport", "gpio"]
+      enum: ["serialport", "gpio", "tcp"]
       default: "serialport"
       defines:
         property: "driverOptions"
@@ -27,6 +27,17 @@ module.exports = {
             title: "gpio driver options"
             type: "object"
             properties: {}
+          tcp:
+            title: "TCP/IP driver options"
+            type: "object"
+            properties:
+              host:
+                description: "Hostname/IP of the Arduino"
+                type: "string"
+              port:
+                description: "TCP port on the Arduino"
+                type: "integer"
+                default: 3012
     driverOptions:
       description: "Options for the driver"
       type: "object"
